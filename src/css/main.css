@@ -155,8 +155,10 @@ form div.error.shake {
   }
   .result .wrapper {
     flex-direction: row;
-    justify-content: space-between;
     padding: 1em 0;
+  }
+  .result .wrapper .result__block {
+    flex: 1;
   }
   .result .wrapper .result__block:not(:first-child) {
     border-left: 1px solid lightgray;
