@@ -1,1 +1,93 @@
-/* No CSS *//*# sourceMappingURL=main.css.map */
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap");
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Rubik";
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  text-align: center;
+  font-weight: 500;
+  color: white;
+  padding: 1em 0;
+}
+
+p {
+  text-align: center;
+  margin: 0.5em;
+}
+
+.wrapper {
+  width: 85%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.shadow {
+  filter: drop-shadow(0 3px 5px #00000025);
+}
+
+header {
+  background: url("../images/pattern-bg.png");
+  max-height: 30vh;
+  position: relative;
+  z-index: 500;
+}
+
+form {
+  display: flex;
+  padding-bottom: 2em;
+}
+
+form input[type="text"] {
+  flex: 1;
+  font-size: 1.25rem;
+  font-weight: 400;
+  padding: 0.75em 1em;
+  border: none;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+form input[type="submit"] {
+  min-width: 60px;
+  background: center no-repeat url("../images/icon-arrow.svg"), #2b2b2b;
+  border: none;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+form input[type="submit"]:hover {
+  cursor: pointer;
+}
+
+.result {
+  background: white;
+  border-radius: 15px;
+  padding: 1em 0;
+}
+
+.result__name {
+  color: #969696;
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
+.result__value {
+  color: #2b2b2b;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.leaflet-container {
+  flex: 1;
+}
+/*# sourceMappingURL=main.css.map */
