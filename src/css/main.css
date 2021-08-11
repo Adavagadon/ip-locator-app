@@ -1,4 +1,28 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap");
+@keyframes shake-horizontal {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70% {
+    transform: translateX(-10px);
+  }
+  20%,
+  40%,
+  60% {
+    transform: translateX(10px);
+  }
+  80% {
+    transform: translateX(8px);
+  }
+  90% {
+    transform: translateX(-8px);
+  }
+}
+
 * {
   margin: 0;
   box-sizing: border-box;
@@ -16,17 +40,17 @@ h1 {
   text-align: center;
   font-weight: 500;
   color: white;
-  padding: 1em 0;
+  padding: 1.2em 0;
 }
 
 p {
   text-align: center;
-  margin: 0.5em;
+  margin: 0.5em 0;
 }
 
 .wrapper {
   width: 85%;
-  max-width: 1000px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
@@ -35,7 +59,7 @@ p {
 }
 
 header {
-  background: url("../images/pattern-bg.png");
+  background: center/cover no-repeat url("../images/pattern-bg.png");
   max-height: 30vh;
   position: relative;
   z-index: 500;
@@ -51,9 +75,13 @@ form input[type="text"] {
   font-size: 1.25rem;
   font-weight: 400;
   padding: 0.75em 1em;
-  border: none;
+  border: 1px solid transparent;
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
+}
+
+form input[type="text"].error {
+  border: 1px solid red;
 }
 
 form input[type="submit"] {
@@ -68,16 +96,35 @@ form input[type="submit"]:hover {
   cursor: pointer;
 }
 
+form div.error {
+  position: absolute;
+  top: -30px;
+  width: 100%;
+  text-align: center;
+  color: red;
+}
+
+form div.error.shake {
+  animation: shake-horizontal 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
+}
+
 .result {
   background: white;
   border-radius: 15px;
   padding: 1em 0;
 }
 
+.result .wrapper {
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+}
+
 .result__name {
   color: #969696;
   font-weight: 700;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
   text-transform: uppercase;
 }
 
@@ -89,5 +136,40 @@ form input[type="submit"]:hover {
 
 .leaflet-container {
   flex: 1;
+}
+
+@media (min-width: 700px) {
+  .result__name {
+    font-size: 0.8rem;
+  }
+  .result__value {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 1000px) {
+  form {
+    max-width: 650px;
+    margin: 0 auto;
+    padding-bottom: 3em;
+  }
+  .result .wrapper {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1em 0;
+  }
+  .result .wrapper .result__block:not(:first-child) {
+    border-left: 1px solid lightgray;
+    padding-left: 1.5em;
+  }
+  .result .wrapper .result__block p {
+    text-align: left;
+  }
+  .result__name {
+    font-size: 0.8rem;
+  }
+  .result__value {
+    font-size: 1.5rem;
+  }
 }
 /*# sourceMappingURL=main.css.map */
